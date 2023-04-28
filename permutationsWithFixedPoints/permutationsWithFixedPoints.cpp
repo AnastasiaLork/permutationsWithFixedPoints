@@ -31,7 +31,9 @@ int combinationWithoutRepeat(int n, int k)
 
 int derangement(int n)
 {
-	return 0;
+    //Если число n отрицательное, беспорядков не существует - выдать ошибку (вернуть -1)
+    //Вычислить кол-во беспорядков по формуле P=(-1)^i * n!/i!, где i=(1,2...n)
+
 }
 
 int main()
