@@ -26,9 +26,17 @@ int permutationsWithFixedPoints(int n, int k)
 
 int combinationWithoutRepeat(int n, int k)
 {
+    if ((n < 0) or (k < 0) or (k > n)) //Если n<k, n<0 или k<0 - выдать ошибку (вернуть -1)
+        return -1;
+    else
+    {
+        //Вычислить кол-во сочетаний по формуле C=n!/(k!*(n-k)!)
+        int numberCombination = 0;
 
-    //Если n<k, n<0 или k<0 - выдать ошибку (вернуть -1)
-    //Иначе вычислить кол-во сочетаний по формуле C=n!/(k!*(n-k)!)
+        numberCombination = factorial(n) / factorial(n - k) / factorial(k);
+
+        return numberCombination;
+    }
   
 }
 
