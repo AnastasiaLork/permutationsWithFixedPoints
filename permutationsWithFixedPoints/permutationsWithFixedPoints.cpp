@@ -4,7 +4,10 @@
 
 int factorial(int n)
 {
-	return 0;
+
+    //Если число отрицательное, факториала не существует - выдать ошибку (вернуть -1)
+    //Иначе вычислить факториал по формуле n!=1*2*...*n
+    
 }
 
 int permutationsWithFixedPoints(int n, int k)
