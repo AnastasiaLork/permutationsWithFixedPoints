@@ -21,7 +21,9 @@ int factorial(int n)
 
 int permutationsWithFixedPoints(int n, int k)
 {
-	return 0;
+    //Если n<k, n<0 или k<0, перестановок не существует - выдать ошибку (вернуть -1)
+        //Если кол-во неподижных точек равно нулю - вычислить только кол-во беспорядков размера n
+        //Иначе вычислить кол-во сочетаний из n по k и умножить на кол-во беспорядков размера n-k
 }
 
 int combinationWithoutRepeat(int n, int k)
