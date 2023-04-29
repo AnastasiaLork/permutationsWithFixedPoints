@@ -1,6 +1,7 @@
 ﻿#include <iostream>
 #include <stdio.h>
 #include <locale.h>
+#include "permutationsWithFixedPoints.h"
 
 int factorial(int n)
 {
