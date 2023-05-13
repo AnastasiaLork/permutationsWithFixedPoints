@@ -149,27 +149,48 @@ int main(int argc, char* argv[])
                         correctData = false;
                     }
                 
-                //Перевод строк в два числа n и k формата int
-                //Проверить, входит ли значение размера перестановок в диапазон [1..9]
-                //Проверить, входит ли значение кол-ва неподвижных точек в диапазон [0..n]
-                //Если данные корректны - решить задачу
-                
-              
-                
-                //Нахождение кол-ва перестановок с неподвижными точками
-                int result;
-                       
+                    int size_n = 0;  //размер перестановок
+                    int points_k = 0; //кол-во неподвижных точек
 
-                //Запись ответа в выходной файл
-                char str[10];
-                _itoa(result, str, 10);
-                fputs(str, outputfile);
+                    if (correctData)
+                    {
+                        //Перевод строк в два числа n и k формата int
+                        size_n = atoi(&element1[0]);
+                        points_k = atoi(&element2[0]);
 
-                //Закрыть файлы
-                fclose(outputfile);
-                fclose(inputfile);
-                    
-                
+                        //Проверить, входит ли значение размера перестановок в диапазон [1..9]
+                        if (size_n > 9 || size_n < 1)
+                        {
+                            printf("Размер перестановки \"%d\" не принадлежит диапазону[1..9].\n", size_n);
+                            correctData = false;
+                        }
+
+                        //Проверить, входит ли значение кол-ва неподвижных точек в диапазон [0..n]
+                        if (points_k > size_n || points_k < 0)
+                        {
+                            printf("Количество неподвижных точек \"%d\" не принадлежит диапазону[0..%d]\n", points_k, size_n);
+                            correctData = false;
+                        }
+                    }
+
+
+                    if (correctData) //Если данные корректны - решить задачу
+                    {
+
+                        //Нахождение кол-ва перестановок с неподвижными точками
+                        int result;
+                        result = permutationsWithFixedPoints(size_n, points_k);
+
+                        //Запись ответа в выходной файл
+                        char str[10];
+                        _itoa(result, str, 10);
+                        fputs(str, outputfile);
+
+                        //Закрыть файлы
+                        fclose(outputfile);
+                        fclose(inputfile);
+                    }
+                }
             }
         }
     }
