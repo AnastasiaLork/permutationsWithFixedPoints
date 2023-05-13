@@ -72,7 +72,39 @@ int derangement(int n)
 
 }
 
-int main()
+int main(int argc, char* argv[])
 {
-	
+    char* locale = setlocale(LC_ALL, ""); //для вывода сообщений русскими буквами
+
+
+     // буфер для считавания данных из файла в формате строки
+    char buffer[256] = "";
+
+    // чтение из файлов
+    FILE* inputfile = fopen(argv[1], "r");
+    FILE* outputfile = fopen(argv[2], "w+");
+
+    //Если файлы не читаются - вывести сообщение об ошибке 
+    if (inputfile == NULL)
+        printf("Неверно указан файл с входными данными. Возможно, файл не существует.\n");
+    else if (outputfile == NULL)
+        printf("Неверно указан файл для выходных данных. Возможно указанного расположения не существует или нет прав на запись.\n");
+    else
+    {
+        fgets(buffer, 10, inputfile); //Копирование данных из файла в буфер в формате строки
+
+        //Нахождение кол-ва перестановок с неподвижными точками
+        int result;
+        
+
+        //Запись ответа в выходной файл
+        char str[10];
+        _itoa(result, str, 10);
+        fputs(str, outputfile);
+
+        //Закрыть файлы
+        fclose(outputfile);
+        fclose(inputfile);
+        
+    }
 }
